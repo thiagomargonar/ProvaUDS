@@ -2,9 +2,11 @@ package webService;
 
 import java.util.ArrayList;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -72,7 +74,38 @@ public class WebServicePessoaFisica {
 		pessoa.setPessoa(p1);
 		
 		try {
-			new PessoaFisicaDAO().SalvarPessoa(pessoa);
+			String status = new PessoaFisicaDAO().SalvarPessoa(pessoa);
+			return Response.status(200)
+			.entity(status)
+			.build();
+		} catch (Exception e) {
+			return Response.status(401)
+					.entity("Problema em salvar: "+e.getMessage())
+					.build();
+		}
+	}
+	
+	@PUT
+	@Path("/atualizaPessoaFisica")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response atualizaPessoaFisica(@HeaderParam("id") long id,
+			@HeaderParam("nome") String nome,
+			@HeaderParam("email") String email,
+			@HeaderParam("telefone") String telefone,
+			@HeaderParam("cpf") String cpf) {
+		
+		PessoaFisica pessoa = new PessoaFisicaDAO().buscarPessoaPorID(id);
+		
+		Pessoa p1 = new Pessoa();
+		pessoa.setCpf(cpf);
+		p1.setEmail(email);
+		p1.setNome(nome);
+		p1.setTelefone(telefone);
+		
+		pessoa.setPessoa(p1);
+		
+		try {
+			String status = new PessoaFisicaDAO().UpdatePessoa(pessoa);
 			
 			return Response.status(200)
 			.entity("Pessoa Fisica Adicionada")
@@ -85,7 +118,7 @@ public class WebServicePessoaFisica {
 	}
 	
 	
-	@POST
+	@DELETE
 	@Path("/removerPessoaFisica")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response removerPessoaFisicaPorId(@HeaderParam("id") long id){

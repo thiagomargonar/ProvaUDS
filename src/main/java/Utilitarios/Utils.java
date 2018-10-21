@@ -8,6 +8,11 @@ import javax.persistence.Persistence;
 
 public class Utils implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public EntityManager getEntityManager() {
 		EntityManagerFactory factory = null;
 		EntityManager entityManager = null;

@@ -29,16 +29,19 @@ public class PessoaFisicaDAO implements Serializable {
 		return resultList;
 	}
 	
-	public void SalvarPessoa(PessoaFisica pessoa) {
+	public String SalvarPessoa(PessoaFisica pessoa) {
 		EntityManager entityTX = new Utils().getEntityManager();
 		
 		try {
+			PessoaFisica c = entityTX.merge(pessoa);
 			entityTX.getTransaction().begin();
-			entityTX.persist(pessoa);
+			entityTX.persist(c);
 			entityTX.getTransaction().commit();
+			
+			return "salvo com sucesso";
 		
 		} catch (Exception e) {
-			// TODO: handle exception
+			return e.getMessage();
 		} finally {
 			entityTX.getEntityManagerFactory().close();
 		}
@@ -61,16 +64,17 @@ public class PessoaFisicaDAO implements Serializable {
 		return pessoa;
 	}
 	
-	public void UpdatePessoa(PessoaFisica pessoa) {
+	public String UpdatePessoa(PessoaFisica pessoa) {
 		EntityManager entityTX = new Utils().getEntityManager();
 		
 		try {
 			entityTX.getTransaction().begin();
 			entityTX.merge(pessoa);
 			entityTX.getTransaction().commit();
+			return "Pessoa Fisica atualizada com sucesso";
 		
 		} catch (Exception e) {
-			// TODO: handle exception
+			return "Erro a atualizar: " + e.getMessage();
 		} finally {
 			entityTX.getEntityManagerFactory().close();
 		}
@@ -82,6 +86,7 @@ public class PessoaFisicaDAO implements Serializable {
 		try {
 			entityTX.getTransaction().begin();
 			PessoaFisica c = entityTX.merge(pessoa);
+			entityTX.remove(c.getPessoa());
 			entityTX.remove(c);
 			entityTX.getTransaction().commit();
 		
