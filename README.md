@@ -1,57 +1,80 @@
 # ProvaUDS
-#Project Title
-One Paragraph of project description goes here
+Serviço de webservice para cadastro de pessoas físicas.
 
-Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+# Executando o projeto
+Este projeto foi desenvolvido em maven, sendo assim, basta ser importado como um projeto existente do maven dentro do seu eclipse para que voce consiga visualizar/executar ou exportar o projeto.
 
-Prerequisites
-What things you need to install the software and how to install them
+# Pré requisitos
+Banco de dados MySQL na versão community 5.6
+JDK 8
+tomcat8
+postman
 
-Give examples
-Installing
-A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+# endpoint
+Metodo GET para listar pessoas fisícas.
+http://localhost:8080/ProvaUDS/webService/pessoa/listaPessoasFisica
+exemplo de json:
+[
+    {
+        "id": 5,
+        "nome": "Thiago Margonar",
+        "email": "margonarbr@gmail.com",
+        "telefone": "44 3026-1122",
+        "cpf": "06762256910"
+    },
+    {
+        "id": 6,
+        "nome": "UDS",
+        "email": "UDS@uds.com",
+        "telefone": "123456",
+        "cpf": "00000000000"
+    }
+]
+-------------------------------------------------------------------------
+Metodo GET para listar pessoa física por id
+http://localhost:8080/ProvaUDS/webService/pessoa/pessoaFisica
+exemplo de JSON
+{
+        "id": 5,
+        "nome": "Thiago Margonar",
+        "email": "margonarbr@gmail.com",
+        "telefone": "44 3026-1122",
+        "cpf": "06762256910"
+}
+-------------------------------------------------------------------------
+Metodo POST para adicionar pessoa física
+http://localhost:8080/ProvaUDS/webService/pessoa/adicionarPessoaFisica
+exemplo de cadastro.
+# key      # value
+nome        Thiago
+email       margonarbr@gmail.com
+telefone    4444444444
+cpf         00000000000
+-------------------------------------------------------------------------
+Metodo PUT para atualizar pessoa física
+http://localhost:8080/ProvaUDS/webService/pessoa/atualizaPessoaFisica
+exemplo de cadastro.
+# key      # value
+id          1
+nome        Thiago margonar
+email       thiago.margonar@hotmail.com
+telefone    4444444444
+cpf         00000000000
 
-Give the example
-And repeat
+-------------------------------------------------------------------------
+Metodo DELETE para excluir pessoa física
+http://localhost:8080/ProvaUDS/webService/pessoa/removerPessoaFisica
+exemplo de cadastro.
+# key      # value
+id          1
+-------------------------------------------------------------------------
 
-until finished
-End with an example of getting some data out of the system or using it for a little demo
+# Versão
+1.0
 
-Running the tests
-Explain how to run the automated tests for this system
+# Autor
+Thiago Henrique Fonseca Margonar
 
-Break down into end to end tests
-Explain what these tests test and why
-
-Give an example
-And coding style tests
-Explain what these tests test and why
-
-Give an example
-Deployment
-Add additional notes about how to deploy this on a live system
-
-Built With
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
-
-Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
-
-Authors
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
-
-License
-This project is licensed under the MIT License - see the LICENSE.md file for details
-
-Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc
+# License
+Livre.
