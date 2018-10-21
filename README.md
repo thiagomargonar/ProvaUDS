@@ -10,64 +10,26 @@ JDK 8
 Tomcat8
 Postman
 
-
 # endpoint
 Método GET para listar pessoas físicas.
 http://localhost:8080/ProvaUDS/webService/pessoa/listaPessoasFisica
-Exemplo de json:
-[
-    {
-        "id": 5,
-        "nome": "Thiago Margonar",
-        "email": "margonarbr@gmail.com",
-        "telefone": "44 3026-1122",
-        "cpf": "06762256910"
-    },
-    {
-        "id": 6,
-        "nome": "UDS",
-        "email": "UDS@uds.com",
-        "telefone": "123456",
-        "cpf": "00000000000"
-    }
-]
+
 -------------------------------------------------------------------------
 Método GET para listar pessoa física por id
 http://localhost:8080/ProvaUDS/webService/pessoa/pessoaFisica
-Exemplo de JSON
-{
-        "id": 5,
-        "nome": "Thiago Margonar",
-        "email": "margonarbr@gmail.com",
-        "telefone": "44 3026-1122",
-        "cpf": "06762256910"
-}
+
 -------------------------------------------------------------------------
 Método POST para adicionar pessoa física
 http://localhost:8080/ProvaUDS/webService/pessoa/adicionarPessoaFisica
-Exemplo de cadastro.
-# key      # value
-nome        Thiago
-email       margonarbr@gmail.com
-telefone    4444444444
-cpf         00000000000
+
 -------------------------------------------------------------------------
 Método PUT para atualizar pessoa física
 http://localhost:8080/ProvaUDS/webService/pessoa/atualizaPessoaFisica
-Exemplo de cadastro.
-# key      # value
-id          1
-nome        Thiago margonar
-email       thiago.margonar@hotmail.com
-telefone    4444444444
-cpf         00000000000
 
 -------------------------------------------------------------------------
 Método DELETE para excluir pessoa física
 http://localhost:8080/ProvaUDS/webService/pessoa/removerPessoaFisica
-Exemplo de cadastro.
-# key      # value
-id          1
+
 -------------------------------------------------------------------------
 
 # Versão
