@@ -12,6 +12,7 @@ public class PessoaFisicaDAO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
+	@SuppressWarnings("unchecked")
 	public ArrayList<PessoaFisica> buscarTodasPessoasFisicas() {
 		EntityManager entityTX = new Utils().getEntityManager();
 		ArrayList<PessoaFisica> resultList = new ArrayList<>();
