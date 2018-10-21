@@ -80,7 +80,7 @@ public class PessoaFisicaDAO implements Serializable {
 		}
 	}
 	
-	public void removePessoaFisica(PessoaFisica pessoa) {
+	public String removePessoaFisica(PessoaFisica pessoa) {
 		EntityManager entityTX = new Utils().getEntityManager();
 		
 		try {
@@ -89,9 +89,10 @@ public class PessoaFisicaDAO implements Serializable {
 			entityTX.remove(c.getPessoa());
 			entityTX.remove(c);
 			entityTX.getTransaction().commit();
+			return "Pessoa fisica removida com sucesso.";
 		
 		} catch (Exception e) {
-			// TODO: handle exception
+			return "problema em remover: " + e.getMessage();
 		} finally {
 			entityTX.getEntityManagerFactory().close();
 		}

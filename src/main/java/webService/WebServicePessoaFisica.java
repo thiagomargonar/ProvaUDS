@@ -96,19 +96,16 @@ public class WebServicePessoaFisica {
 		
 		PessoaFisica pessoa = new PessoaFisicaDAO().buscarPessoaPorID(id);
 		
-		Pessoa p1 = new Pessoa();
 		pessoa.setCpf(cpf);
-		p1.setEmail(email);
-		p1.setNome(nome);
-		p1.setTelefone(telefone);
-		
-		pessoa.setPessoa(p1);
+		pessoa.getPessoa().setEmail(email);
+		pessoa.getPessoa().setNome(nome);
+		pessoa.getPessoa().setTelefone(telefone);
 		
 		try {
 			String status = new PessoaFisicaDAO().UpdatePessoa(pessoa);
 			
 			return Response.status(200)
-			.entity("Pessoa Fisica Adicionada")
+			.entity(status)
 			.build();
 		} catch (Exception e) {
 			return Response.status(401)
@@ -126,9 +123,9 @@ public class WebServicePessoaFisica {
 		PessoaFisica pessoa = new PessoaFisicaDAO().buscarPessoaPorID(id);
 		
 		try {
-			new PessoaFisicaDAO().removePessoaFisica(pessoa);
+			String status = new PessoaFisicaDAO().removePessoaFisica(pessoa);
 			return Response.status(200)
-			.entity("Pessoa Fisica Removida")
+			.entity(status)
 			.build();
 		} catch (Exception e) {
 			return Response.status(401)
