@@ -2,19 +2,19 @@
 Serviço de webservice para cadastro de pessoas físicas.
 
 # Executando o projeto
-Este projeto foi desenvolvido em maven, sendo assim, basta ser importado como um projeto existente do maven dentro do seu eclipse para que voce consiga visualizar/executar ou exportar o projeto.
+Este projeto foi desenvolvido em maven, sendo assim, basta ser importado como um projeto existente do maven dentro do seu eclipse para que você consiga visualizar/executar ou exportar o projeto.
 
 # Pré requisitos
 Banco de dados MySQL na versão community 5.6
 JDK 8
-tomcat8
-postman
+Tomcat8
+Postman
 
 
 # endpoint
-Metodo GET para listar pessoas fisícas.
+Método GET para listar pessoas físicas.
 http://localhost:8080/ProvaUDS/webService/pessoa/listaPessoasFisica
-exemplo de json:
+Exemplo de json:
 [
     {
         "id": 5,
@@ -32,9 +32,9 @@ exemplo de json:
     }
 ]
 -------------------------------------------------------------------------
-Metodo GET para listar pessoa física por id
+Método GET para listar pessoa física por id
 http://localhost:8080/ProvaUDS/webService/pessoa/pessoaFisica
-exemplo de JSON
+Exemplo de JSON
 {
         "id": 5,
         "nome": "Thiago Margonar",
@@ -43,18 +43,18 @@ exemplo de JSON
         "cpf": "06762256910"
 }
 -------------------------------------------------------------------------
-Metodo POST para adicionar pessoa física
+Método POST para adicionar pessoa física
 http://localhost:8080/ProvaUDS/webService/pessoa/adicionarPessoaFisica
-exemplo de cadastro.
+Exemplo de cadastro.
 # key      # value
 nome        Thiago
 email       margonarbr@gmail.com
 telefone    4444444444
 cpf         00000000000
 -------------------------------------------------------------------------
-Metodo PUT para atualizar pessoa física
+Método PUT para atualizar pessoa física
 http://localhost:8080/ProvaUDS/webService/pessoa/atualizaPessoaFisica
-exemplo de cadastro.
+Exemplo de cadastro.
 # key      # value
 id          1
 nome        Thiago margonar
@@ -63,9 +63,9 @@ telefone    4444444444
 cpf         00000000000
 
 -------------------------------------------------------------------------
-Metodo DELETE para excluir pessoa física
+Método DELETE para excluir pessoa física
 http://localhost:8080/ProvaUDS/webService/pessoa/removerPessoaFisica
-exemplo de cadastro.
+Exemplo de cadastro.
 # key      # value
 id          1
 -------------------------------------------------------------------------
@@ -76,5 +76,5 @@ id          1
 # Autor
 Thiago Henrique Fonseca Margonar
 
-# License
+# Licença
 Livre.
