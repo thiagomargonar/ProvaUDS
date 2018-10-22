@@ -32,9 +32,9 @@ public class WebServicePessoaFisica {
 		for (PessoaFisica pessoa : pessoas) {
 			JsonObject j = new JsonObject();
 			j.addProperty("id", pessoa.getId());
-			j.addProperty("nome", pessoa.getPessoa().getNome());
-			j.addProperty("email", pessoa.getPessoa().getEmail());
-			j.addProperty("telefone", pessoa.getPessoa().getTelefone());
+			j.addProperty("nome", pessoa.getNome());
+			j.addProperty("email", pessoa.getEmail());
+			j.addProperty("telefone", pessoa.getTelefone());
 			j.addProperty("cpf", pessoa.getCpf());
 			jarray.add(j);
 		}
@@ -48,9 +48,9 @@ public class WebServicePessoaFisica {
 		PessoaFisica pessoa = new PessoaFisicaDAO().buscarPessoaPorID(id);
 		JsonObject j = new JsonObject();
 		j.addProperty("id", pessoa.getId());
-		j.addProperty("nome", pessoa.getPessoa().getNome());
-		j.addProperty("email", pessoa.getPessoa().getEmail());
-		j.addProperty("telefone", pessoa.getPessoa().getTelefone());
+		j.addProperty("nome", pessoa.getNome());
+		j.addProperty("email", pessoa.getEmail());
+		j.addProperty("telefone", pessoa.getTelefone());
 		j.addProperty("cpf", pessoa.getCpf());
 		return j.toString();
 	}
@@ -64,14 +64,12 @@ public class WebServicePessoaFisica {
 			@HeaderParam("cpf") String cpf) {
 		
 		PessoaFisica pessoa = new PessoaFisica();
-		Pessoa p1 = new Pessoa();
 		
 		pessoa.setCpf(cpf);
-		p1.setEmail(email);
-		p1.setNome(nome);
-		p1.setTelefone(telefone);
+		pessoa.setEmail(email);
+		pessoa.setNome(nome);
+		pessoa.setTelefone(telefone);
 		
-		pessoa.setPessoa(p1);
 		
 		try {
 			String status = new PessoaFisicaDAO().SalvarPessoa(pessoa);
@@ -97,9 +95,9 @@ public class WebServicePessoaFisica {
 		PessoaFisica pessoa = new PessoaFisicaDAO().buscarPessoaPorID(id);
 		
 		pessoa.setCpf(cpf);
-		pessoa.getPessoa().setEmail(email);
-		pessoa.getPessoa().setNome(nome);
-		pessoa.getPessoa().setTelefone(telefone);
+		pessoa.setEmail(email);
+		pessoa.setNome(nome);
+		pessoa.setTelefone(telefone);
 		
 		try {
 			String status = new PessoaFisicaDAO().UpdatePessoa(pessoa);

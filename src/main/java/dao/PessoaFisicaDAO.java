@@ -17,7 +17,7 @@ public class PessoaFisicaDAO implements Serializable {
 		EntityManager entityTX = new Utils().getEntityManager();
 		ArrayList<PessoaFisica> resultList = new ArrayList<>();
 		try {
-			resultList = (ArrayList<PessoaFisica>) entityTX.createQuery("from PessoaFisica")
+			resultList = (ArrayList<PessoaFisica>) entityTX.createQuery("from Pessoa")
 					.getResultList();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -86,7 +86,6 @@ public class PessoaFisicaDAO implements Serializable {
 		try {
 			entityTX.getTransaction().begin();
 			PessoaFisica c = entityTX.merge(pessoa);
-			entityTX.remove(c.getPessoa());
 			entityTX.remove(c);
 			entityTX.getTransaction().commit();
 			return "Pessoa fisica removida com sucesso.";
