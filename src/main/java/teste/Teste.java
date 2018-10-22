@@ -51,12 +51,10 @@ public class Teste {
 		PessoaFisica p1 = new PessoaFisica();
 		p1.setCpf("06762256910");
 
-		Pessoa pessoa = new Pessoa();
-		pessoa.setEmail("teste@gmail.com");
-		pessoa.setNome("teste");
-		pessoa.setTelefone("456123456");
+		p1.setEmail("teste@gmail.com");
+		p1.setNome("teste");
+		p1.setTelefone("456123456");
 		
-		p1.setPessoa(pessoa);
 		
 		new PessoaFisicaDAO().SalvarPessoa(p1);
 	}
@@ -66,7 +64,7 @@ public class Teste {
 		p1 = new PessoaFisicaDAO().buscarTodasPessoasFisicas();
 		
 		for (PessoaFisica pessoaFisica : p1) {
-			System.out.println(pessoaFisica.getPessoa().getEmail());
+			System.out.println(pessoaFisica.getEmail());
 		}
 	}
 
